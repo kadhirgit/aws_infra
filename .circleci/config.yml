@@ -17,6 +17,8 @@ jobs:
       - run:
           name: Create Stack
           command: |
+            pwd
+            ls -la
             aws cloudformation deploy \
               --template-file file://https://raw.githubusercontent.com/kadhirgit/aws_infra/main/.circleci/template.yml \
               --stack-name prod-${CIRCLE_WORKFLOW_ID} \

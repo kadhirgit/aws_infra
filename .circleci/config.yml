@@ -20,7 +20,7 @@ jobs:
             pwd
             ls -la
             aws cloudformation deploy \
-              --template-file file:///root/project/.circleci/template.yml \
+              --template-file file://~/template.yml \
               --stack-name prod-${CIRCLE_WORKFLOW_ID} \
               --region=ap-south-1
       - run: return 1

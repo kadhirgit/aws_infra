@@ -1,12 +1,4 @@
 Resources:
-Ec2Instance:
- Type: 'AWS::EC2::Instance'
- Properties:
-   SecurityGroups:
-     - !Ref InstanceSecurityGroup
-   KeyName: udacity
-   ImageId: 'ami-0c1a7f89451184c8b'
-
 InstanceSecurityGroup:
  Type: 'AWS::EC2::SecurityGroup'
  Properties:
@@ -16,3 +8,12 @@ InstanceSecurityGroup:
        FromPort: '22'
        ToPort: '22'
        CidrIp: 0.0.0.0/0
+Ec2Instance:
+ Type: 'AWS::EC2::Instance'
+ Properties:
+   SecurityGroups:
+     - !Ref InstanceSecurityGroup
+   KeyName: udacity
+   ImageId: 'ami-0c1a7f89451184c8b'
+
+

@@ -14,8 +14,6 @@ jobs:
       - image: amazon/aws-cli
     steps:
       - checkout
-     # - add_ssh_keys:
-    #      fingerprints: ["46:6e:23:f0:00:75:c4:3b:11:a6:f4:46:3f:41:47:97"]  
       - run:
           name: Create Stack
           command: |
@@ -25,8 +23,9 @@ jobs:
               --template-file /root/project/template.yml \
               --stack-name prod-${CIRCLE_WORKFLOW_ID} \
               --region ap-south-1
-      #- run: return 1
-      #- destroy_environment
+       - run: return 1
+       - destroy_environment
+         when: on_fail
     
 
 workflows:

@@ -1,17 +1,12 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Creates a VPC"
+Parameters:
+  VPCName:
+    Description: "The name of the VPC being created"
+    Type: String
+    Default: "Very cool vpc"
 Resources:
-  Ec2Instance:
-    Type: 'AWS::EC2::Instance'
+  VPC:
+    Type: AWS::EC2::VPC
     Properties:
-      SecurityGroups:
-        - !Ref InstanceSecurityGroup
-      KeyName: udacity
-      ImageId: 'ami-04bde106886a53080'
-  InstanceSecurityGroup:
-    Type: 'AWS::EC2::SecurityGroup'
-    Properties:
-      GroupDescription: Enable SSH access via port 22
-      SecurityGroupIngress:
-        - IpProtocol: tcp
-          FromPort: '22'
-          ToPort: '22'
-          CidrIp: 0.0.0.0/0
+    CidrBlock: 10.10.10.0/24
